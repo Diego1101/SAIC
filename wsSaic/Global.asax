@@ -5,6 +5,7 @@
     void Application_Start(object sender, EventArgs e)
     {
         // Code that runs on application startup
+        Application["cnn"]=ConfigurationManager.ConnectionStrings["cnnSGAIC"]. ConnectionString;
 
     }
 
@@ -25,6 +26,8 @@
         // Code that runs when a new session is started
         Session["ID"] = -1;
         Session["Usuario"] = -1;
+        Session["Rol"] = -1;
+        Session["Nombre"] = -1;
 
     }
 
