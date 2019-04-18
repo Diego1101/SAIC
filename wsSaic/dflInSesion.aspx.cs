@@ -53,22 +53,21 @@ public partial class _Default : System.Web.UI.Page
                     {
                         case 1: //Adm
                             
-                            Response.Write("<script language ='javascript'>document.location.href='dflPrincipal.aspx';</script>");
+                            Response.Write("<script language ='javascript'>document.location.href='dflSolicitudesAdm.aspx';</script>");
                             break;
 
                         case 2: //Secretaria
-                            Response.Write("<script language ='javascript'>document.location.href='dflPrincipal.aspx';</script>");
+                            Response.Write("<script language ='javascript'>document.location.href='dflPagos.aspx';</script>");
                             break;
 
                         case 3://Tecnico
-                            Response.Write("<script language ='javascript'>document.location.href='dflPrincipal.aspx';</script>");
+                            Response.Write("<script language ='javascript'>document.location.href='dflServicios.aspx';</script>");
                             break;
                         default:
                             Response.Write("<script language ='javascript'>alert('Error')</script>");
                             break;
                     }
-
-                                   }
+                }
             } 
         }
         else
