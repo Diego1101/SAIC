@@ -11,11 +11,9 @@ GO
 USE BD_SGAIC
 GO
 
-
 ----------------------------------------------------------------------
 --------------------------------TABLAS--------------------------------
 ----------------------------------------------------------------------
-
 CREATE TABLE SUCURSAL
 (
 	SC_ID 		INT PRIMARY KEY IDENTITY NOT NULL,
@@ -56,7 +54,6 @@ CREATE TABLE CLIENTE
 	CL_TELEFONO	NVARCHAR(12) NOT NULL,
 	CL_ESTATUS	INT NOT NULL,
 	CL_FECHA_REG DATETIME NOT NULL
-	
 )
 GO
 
@@ -204,7 +201,6 @@ CREATE TABLE DETPAGO
 	DP_TOTAL	FLOAT NOT NULL
 )
 GO
-
 
 ----------------------------------------------------------------------
 ---------------------------------DATOS--------------------------------
