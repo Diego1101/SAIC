@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 
 /// <summary>
 /// Summary description for clsEmpleado
@@ -26,6 +27,11 @@ public class clsEmpleado
         //
         // TODO: Add constructor logic here
         //
+    }
+
+    public clsEmpleado(int id)
+    {
+        Id = id;
     }
 
     ~clsEmpleado()
@@ -67,6 +73,52 @@ public class clsEmpleado
             }
         }
         cnn.Close();
+
+        return res;
+    }
+
+    public List<clsServicio> serviciosEmp(int emp, int tipo, String cn)
+    {
+        List<clsServicio> res = new List<clsServicio>();
+
+        cnn = new SqlConnection(cn);
+        cmd = new SqlCommand("TSP_mosntrarServiciosTec", cnn);
+
+        SqlParameter nTec = cmd.Parameters.Add("@TECNICO", SqlDbType.Int);
+        SqlParameter nTipo = cmd.Parameters.Add("@TIPO", SqlDbType.Int);
+
+        cmd.CommandType = CommandType.StoredProcedure;
+
+        nTec.Value = emp;
+        nTipo.Value = tipo;
+
+
+        cnn.Open();
+        dr = cmd.ExecuteReader();
+
+        while (dr.Read())
+        {
+            if (dr.GetValue(0) != null)
+            {
+                clsServicio obj = new clsServicio();
+                obj.Id= int.Parse(dr.GetValue(0).ToString());
+                obj.Maquina= int.Parse(dr.GetValue(1).ToString());
+                obj.Tipo = int.Parse(dr.GetValue(2).ToString());
+                obj.Desc = dr.GetValue(3).ToString();
+                obj.Fecha_inicio = DateTime.Parse(dr.GetValue(4).ToString());
+                obj.Modelo = dr.GetValue(5).ToString();
+                obj.Calle = dr.GetValue(6).ToString();
+                obj.Numero = dr.GetValue(7).ToString();
+                obj.Ciudad = dr.GetValue(8).ToString();
+                obj.DEstado = dr.GetValue(9).ToString();
+                obj.Cp = dr.GetValue(10).ToString();
+                obj.Nombre = dr.GetValue(11).ToString();
+                res.Add(obj);
+            }
+        }
+        cnn.Close();
+
+
 
         return res;
     }
