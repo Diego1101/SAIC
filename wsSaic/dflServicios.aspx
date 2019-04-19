@@ -22,23 +22,23 @@
                         html += "<h3>Datos: </h3>";
                         html += "<dl>";
                         html += "<dt>Cliente: </dt>";
-                        html += "<dd> "+obj.Nombre+"</dd>";
+                        html += "<dd> " + obj.Nombre + "</dd>";
                         html += "</dl>";
                         html += "<dl>";
                         html += "<dt>Modelo: </dt>";
-                        html += "<dd>"+obj.Modelo+"</dd>";
+                        html += "<dd>" + obj.Modelo + "</dd>";
                         html += "</dl>";
                         html += "<dl>";
                         html += "<dt>Detalles: </dt>";
-                        html += "<dd>"+obj.Desc+"</dd>";
+                        html += "<dd>" + obj.Desc + "</dd>";
                         html += "</dl>";
                         html += "<hr/>";
                         html += "<h3>Dirección: </h3>";
                         html += "<dl>";
-                        html += "<dt>"+obj.Calle+" No."+obj.Numero+" "+obj.Ciudad+", "+obj.DEstado+". "+obj.Cp+"</dt>";
+                        html += "<dt>" + obj.Calle + " No." + obj.Numero + " " + obj.Ciudad + ", " + obj.DEstado + ". " + obj.Cp + "</dt>";
                         html += "</dl>";
-                        html += "<a class=btn>Ver Máquina</a>";
-                        html += "<a class=btn>Completado</a>";
+                        html += "<a class='btn'  href='javascript:onclick=closeForm()'>Ver Máquina</a>";
+                        html += "<a class='btn'  href='javascript:onclick=openForm("+obj.Id+")'>Completado</a>";
                         html += "</div>";
                         html += "</div>";
                         Response.Write(html);
@@ -47,8 +47,28 @@
 
                 %>
 
-                <div id="completar">
+                <div class="fondo-banner" id="com1">
+                    <div class="completar">
+                        <a class="btn" href='javascript:onclick=closeForm(1)'>Cerrar1</a>
+                    </div>
+                </div>
 
+                <div class="fondo-banner" id="com2">
+                    <div class="completar">
+                        <a class="btn" href='javascript:onclick=closeForm(2)'>Cerrar2</a>
+                    </div>
+                </div>
+
+                <div class="fondo-banner" id="com3">
+                    <div class="completar">
+                        <a class="btn" href='javascript:onclick=closeForm(3)'>Cerrar3</a>
+                    </div>
+                </div>
+
+                <div class="fondo-banner" id="com4">
+                    <div class="completar">
+                        <a class="btn" href='javascript:onclick=closeForm(4)'>Cerrar4</a>
+                    </div>
                 </div>
 
 
@@ -133,5 +153,17 @@
             </div>
         </div>
     </section>
+
+    <script>
+        function openForm(id) {
+            document.getElementById("com"+id).style.display = "block";
+        }
+
+        function closeForm(id) {
+            document.getElementById("com"+id).style.display = "none";
+        }
+
+    </script>
+
 </asp:Content>
 
