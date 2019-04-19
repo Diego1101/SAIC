@@ -11,7 +11,9 @@ GO
 USE BD_SGAIC
 GO
 
-
+----------------------------------------------------------------------
+--------------------------------TABLAS--------------------------------
+----------------------------------------------------------------------
 CREATE TABLE SUCURSAL
 (
 	SC_ID 		INT PRIMARY KEY IDENTITY NOT NULL,
@@ -51,8 +53,7 @@ CREATE TABLE CLIENTE
 	CL_CORREO 	NVARCHAR(150) NOT NULL,
 	CL_TELEFONO	NVARCHAR(12) NOT NULL,
 	CL_ESTATUS	INT NOT NULL,
-	CL_FECHA_REG DATETIME NOT NULL,
-	
+	CL_FECHA_REG DATETIME NOT NULL
 )
 GO
 
@@ -196,7 +197,9 @@ CREATE TABLE DETPAGO
 )
 GO
 
-----DATOS
+----------------------------------------------------------------------
+---------------------------------DATOS--------------------------------
+----------------------------------------------------------------------
 
 INSERT INTO SUCURSAL VALUES ('SUCRSAL IZCALLI', 'BANCOS', 'CUATITLAN IZCALLI', 'ESTADO DE MEXICO', '56345', '5584726482', 1);
 GO
@@ -211,7 +214,7 @@ INSERT INTO CLIENTE VALUES
 	('Agustin', 'Madrigales', 'agus', 'contraseña', '', '1967-06-25', 1, 'calle 12', 'CUAUTITLAN', 'MEXICO', '53426', '1@gamil.com', '558408563', 1, GETDATE())
 GO
 INSERT INTO CLIENTE VALUES
-	('Maria', 'Ramires', 'ingus', 'ingus', '', '1987-02-13', 0, 'Ahuehuetes', 'Coacalco', 'MEXICO', '55417', '2@gamil.com', '5583746828', 1, GETDATE())
+	('Maria', 'Ramires', 'inguz', 'inguz', '', '1987-02-13', 0, 'Ahuehuetes', 'Coacalco', 'MEXICO', '55417', '2@gamil.com', '5583746828', 1, GETDATE())
 GO
 
 INSERT INTO REGCLIENTE(RC_ID_CLI, RC_ID_SUC) VALUES
@@ -243,8 +246,8 @@ GO
 
 INSERT INTO EMPLEADO(EM_ID_ROL, EM_ID_SUC, EM_NOMBRE, EM_APELLIDO, EM_USU, EM_CONTRA, EM_FOTO, EM_SEXO, EM_CUMPLE, EM_DIRECCION,  EM_TEL, EM_CORREO,EM_SEGURO, EM_ESTATUS, EM_FECHA_REG) VALUES
 	(1, 1, 'ADALEYSI', 'LARA', 'ADA', 'ADA', '', 0, '1974-12-12', 'ACTOPAN', '83749202', 'ADA@MAIL.COM', 'UEOSKD9284UDJSAJQ', 1, GETDATE()),
-	(1, 1, 'LUIS', 'JIMENEZ', 'LUI', 'LUI', '', 1, '1964-05-28', 'OJO DE AGUA', '239483472', 'LUIS@MAIL.COM', 'JAMSF2948SJSAL', 1, GETDATE()),
-	(1, 1, 'DIEGO', 'MENDOZA', 'DIG', 'DIG', '', 1, '1982-04-11', 'PACHUCA', '53729382', 'DIG@MAIL.COM', 'UDJSO8E7EUDJSO8YK', 1, GETDATE())
+	(2, 1, 'LUIS', 'JIMENEZ', 'LUI', 'LUI', '', 1, '1964-05-28', 'OJO DE AGUA', '239483472', 'LUIS@MAIL.COM', 'JAMSF2948SJSAL', 1, GETDATE()),
+	(3, 1, 'DIEGO', 'MENDOZA', 'DIG', 'DIG', '', 1, '1982-04-11', 'PACHUCA', '53729382', 'DIG@MAIL.COM', 'UDJSO8E7EUDJSO8YK', 1, GETDATE())
 GO
 
 INSERT INTO MAQUINA(MQ_ID_EMPLEADO, MQ_ID_INV, MQ_MARCA, MQ_MODELO, MQ_ESTATUS, MQ_PRECIO, MQ_DESCRIPCION, MQ_FOTO) VALUES
@@ -303,5 +306,48 @@ INSERT INTO DETPAGO(DP_ID_PAGO, DP_DESC, DP_TOTAL) VALUES
 	(1, 'RENTA ABRIL', 300.00),
 	(3, 'ULTIMA RENTA', 456.00),
 	(4, 'RENTA ABRIL', 466.00)	
-	
-	GO
+GO
+
+
+
+----------------------------------------------------------------------
+----------------------PROCEDIMIETNOS ALMACENADOS----------------------
+----------------------------------------------------------------------
+
+CREATE PROCEDURE TSP_iniciarSesion
+(
+	@USU NVARCHAR(15),
+	@CONTRA	 NVARCHAR(15),
+	@TIPO INT
+)
+AS
+BEGIN
+
+	IF (@TIPO=1)
+	BEGIN 
+		IF EXISTS(SELECT * FROM EMPLEADO WHERE EM_USU=@USU AND EM_CONTRA=@CONTRA AND EM_ESTATUS=1)
+		BEGIN
+			SELECT  EM_ID CLAVE,EM_USU USUARIO, CONCAT(EM_NOMBRE,' ' ,EM_APELLIDO) NOMBRE, EM_ID_ROL ROL, EM_ID_SUC SUCURSAL 
+			FROM EMPLEADO
+			WHERE EM_USU=@USU AND EM_CONTRA=@CONTRA
+		END
+		ELSE SELECT -1	
+	END
+
+	ELSE IF(@TIPO=0)
+	BEGIN
+		IF EXISTS(SELECT * FROM CLIENTE WHERE CL_USU=@USU AND CL_CONTRA=@CONTRA AND CL_ESTATUS=1)
+		BEGIN
+			SELECT CL_ID CLAVE, CL_USU USUARIO, CONCAT(CL_NOMBRE, ' ', CL_APELLIDO) NOMBRE, 0 ROL
+			FROM CLIENTE 
+			WHERE CL_USU=@USU AND CL_CONTRA=@CONTRA AND CL_ESTATUS=1
+		END
+		ELSE SELECT -1
+	END
+END
+GO
+
+exec TSP_iniciarSesion 'inguz', 'inguz', 0
+
+--SELECT * FROM EMPLEADO
+--SELECT * FROM CLIENTE
