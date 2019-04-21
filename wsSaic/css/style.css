@@ -742,16 +742,21 @@ table tr:nth-child(even) {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  margin-top: 7px;
+  margin-top: 20px;
   padding: 30px 30px 25px;
   color: #fff;
   background: #57aacd;
   border-radius:15px;
 }
-.info-box dt,
-.info-box dd {
+.info-box dt{
+  display: inline-block;
+  font-weight:600;
+}
+
+.info-box dd{
   display: inline-block;
 }
+
 .info-box hr {
   background: #fff;
 }
@@ -1185,30 +1190,7 @@ header {
 header .brand {
   float: left;
 }
-header a[href^="callto:"],
-header .container > p {
-  clear: right;
-  float: right;
-}
-header a[href^="callto:"] {
-  margin-top: 7px;
-  position: relative;
-  font-size: 24px;
-  color: #777777;
-}
-header a[href^="callto:"]:before {
-  position: absolute;
-  top: -4px;
-  left: -44px;
-  font-size: 34px;
-  color: #6bc7ed;
-}
-header a[href^="callto:"]:hover {
-  color: map;
-}
-header a[href^="callto:"] + p {
-  margin-top: 7px;
-}
+
 @media (max-width: 979px) {
   header {
     text-align: center;
@@ -1484,6 +1466,11 @@ footer .copyright a:hover {
     border: none;
 }
 
+.txtBox:focus{
+    box-shadow: 0px 0px 12px 5px rgba(191,195,219,1);
+
+}
+
 .DropDown{
     width:100%;
     border-width:0px;
@@ -1508,16 +1495,31 @@ footer .copyright a:hover {
 }
 
 .reparacion .btn{
-    background-color:#b96464    ;
+    background-color:#b96464;
 }
 
 .reparacion .btn:hover{
     background-color:#a84444;
 }
 
+.btn-comp{
+    width:300px;
+    margin-top: 5px;
+    /*background-color:#60a83a;*/
+}
+/*.btn-comp:hover{
+    background-color:#407219;
+}*/
+
 .completar{
     position: absolute;
     display: inherit;
+    width:70%;
+    height:90%;
+    background: white;
+    border-radius: 20px;
+    top: 5%;
+    right:15%
 }
 
 .fondo-banner{
