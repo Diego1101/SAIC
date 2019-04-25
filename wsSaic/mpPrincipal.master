@@ -16,8 +16,6 @@
     <script src="js/device.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <style>
-    </style>
     <%--hi--%>
 </head>
 <body>
@@ -30,22 +28,10 @@
                         <h1 class="brand_name"><a href="#">AIC</a></h1>
                         <p class="brand_slogan">Apliaciones de impresión y copiado S.A. de C.V.</p>
                     </div>
+                    <%--<a href="callto:#" class=" fas fa-phone">+52 5512345678</a>
+                    <p>Para mas infomación contactanos</p>--%>
                     <div style="clear: right; float: right;">
-                        <%--<nav class="nav">
-                            <ul data-type="navbar" class="sf-menu">
-                                <li>
-                                    <h5><i class="fa-user" style="color: rgb(98, 191, 230);"></i>&nbsp&nbsp<a href="#">Iniciar sesion</a></h5>
-                                    <ul>
-                                        <li>
-                                            <a href="#">Cerrar sesion</a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                            </ul>
-                        </nav>--%>
-
-                        <nav class="nav">
+                       <nav class="nav">
                             <ul>
                                 <li class="drop">
                                     <%--<a href="#" class="mUsuario"><i class="fa-user" style="color: rgb(98, 191, 230);"></i>&nbsp 
@@ -61,7 +47,7 @@
                                         {
                                             Response.Write("<a href='#' class='mUsuario'><i class='fa-user' style='color: rgb(98, 191, 230);'></i>&nbsp");
                                             Response.Write(Session["Usuario"].ToString() + "</a>");
-                                            Response.Write("<div class='dropdownContain'><div class='dropOut'><div class='triangle'></div><ul><li><a style='color: inherit'>Plan</a></li><li><a style='color: inherit'>Mi cuenta</a></li><li><a style='color: inherit'>Mis maquinas</a></li><li><a style='color: inherit' href='dflClSesion.aspx'>Cerrar sesión</a></li></ul></div></div>");
+                                            Response.Write("<div class='dropdownContain'><div class='dropOut'><div class='triangle'></div><ul><li><a style='color: inherit'>Mis Planes</a></li><li><a style='color: inherit'>Mis maquinas</a></li><li><a style='color: inherit'>Mi cuenta</a></li><li><a style='color: inherit' href='dflClSesion.aspx'>Cerrar sesión</a></li></ul></div></div>");
                                         }
 
                                     %>
