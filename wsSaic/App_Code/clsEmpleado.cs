@@ -113,6 +113,7 @@ public class clsEmpleado
                 obj.DEstado = dr.GetValue(9).ToString();
                 obj.Cp = dr.GetValue(10).ToString();
                 obj.Nombre = dr.GetValue(11).ToString();
+                obj.Folio = int.Parse(dr.GetValue(12).ToString());
                 res.Add(obj);
             }
         }
