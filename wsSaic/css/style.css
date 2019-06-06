@@ -1528,7 +1528,8 @@ footer .copyright a:hover {
     background: white;
     border-radius: 20px;
     top: 5%;
-    right:15%
+    right:15%;    
+    overflow:scroll;
 }
 
 .solicitud{
@@ -1540,7 +1541,6 @@ footer .copyright a:hover {
     border-radius: 20px;
     top: 10%;
     right:25%;
-    /*overflow:scroll;*/
 }
 
 

@@ -1,10 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mpPricipalTecnico.master" AutoEventWireup="true" CodeFile="dflServicios.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-        <script type="text/javascript">
-    //<![CDATA[
-    self.name ="ventanaprincipal";
-    //]]>
+    <script type="text/javascript">
+        //<![CDATA[
+        self.name = "ventanaprincipal";
+        //]]>
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -73,6 +73,53 @@
             </div>
         </div>
     </section>
+
+    <div class='fondo-banner' id='mq10' style="display: block;">
+        <div class='completar'>
+            <div class="container" style="width: 90%">
+                <div class="row" style="margin-top: 0px;">
+                    <br />
+                    <table style="border-width: 0px;">
+                        <tr>
+                            <td colspan="2" rowspan="2" style="width: 30%;">
+                                <asp:Image ID="imgMaquina" runat="server" Style="" ImageUrl="~/IMGMAQUINAS/Xerox.jpg" />
+                            </td>
+                            <td style="width: 35%;">
+                                 <h5><strong>Modelo: </strong>modelo</h5>
+                            </td>
+                            <td style="width: 35%;">
+                                <h5><strong>No.Serie: </strong>asdf3452af</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h6><strong>Contador: </strong>7876</h6>
+                            </td>
+                            <td>
+                                <h6><strong>Descripción: </strong></h6> 
+                            <p>Deskljf orwiuflk sdfjkljma ncjfoi fvioancf usldk fjwioufa efewiu uiwoe ifu weio faslk fjioweuf nsklk jdj fa jsdoiu fwiu fiowu fsd lkjf a.</p>
+                        
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+                <br />
+                <div class="row">
+                   
+
+                    
+                </div>
+                <div class="row" style="margin-top: 0px;">
+                    <asp:Button class="btn" ID="btnCancelar" runat="server" Text="Cancelar" Style="width: 40%" />
+                    <asp:Button class="btn" ID="btnAceptar" runat="server" Text="Aceptar" Style="width: 40%" />
+                </div>
+            </div>
+
+            <a class='btn' href='javascript:onclick=closeMaquina(10)'>Maquina10</a>
+        </div>
+        </div>
+
 
     <script>
         function openCom(id) {

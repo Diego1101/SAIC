@@ -29,7 +29,6 @@ public partial class dflSolicitud : System.Web.UI.Page
                 if (res == "1") Response.Write("<script language ='javascript'>alert('Agregada');</script>");
                 else if (res == "0") Response.Write("<script language ='javascript'>alert('No se encontro el servicio');</script>");
                 else Response.Write("<script language ='javascript'>alert('Error: "+res+"');</script>");
-
             }
         }
         catch(Exception ex)
