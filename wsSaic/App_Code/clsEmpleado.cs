@@ -123,4 +123,14 @@ public class clsEmpleado
         return res;
     }
 
+    public DataSet listarTecnico(string con)
+    {
+        da = new SqlDataAdapter("TSP_ListarTecnico", con);
+        ds = new DataSet();
+        da.Fill(ds, "TecnicoLista");
+        return ds;
+    }
+
+
+
 }

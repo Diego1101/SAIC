@@ -28,6 +28,7 @@
         Session["Usuario"] = -1;
         Session["Rol"] = -1;
         Session["Nombre"] = -1;
+        Session["nomArchivo"] = "dflIframe.aspx";
 
     }
 

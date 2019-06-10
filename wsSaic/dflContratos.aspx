@@ -40,7 +40,7 @@
 
               <div class="grid_6">
                 <div class="info-box">
-                  <h2 class="fa-comment">Información del cliente</h2>
+                  <h2 class="fa-user">Información del cliente</h2>
                   <hr/>
                   <h3>Datos:   </h3>
                   <dl >
@@ -48,19 +48,20 @@
                     <dt>    </dt> 
                     <dd>
                          <br /><br />
-                        <asp:TextBox ID="txtNombre" runat="server" placeholder="Nombre"></asp:TextBox>
+                        <%--CssClass="txtBox"  DA FORMATO A LAS CAJAS DE TEXTO--%>
+                        <asp:TextBox ID="txtNombre" CssClass="txtBox" runat="server" placeholder="Nombre"></asp:TextBox>
                         <br /><br />
-                        <asp:TextBox ID="txtAP" runat="server" placeholder="Apellido Paterno"></asp:TextBox>
+                        <asp:TextBox ID="txtAP" CssClass="txtBox" runat="server" placeholder="Apellido Paterno"></asp:TextBox>
                         
                         <br /><br />
-                        <asp:TextBox ID="txtAM" runat="server" placeholder="Apellido Materno"></asp:TextBox>
+                        <asp:TextBox ID="txtAM"  CssClass="txtBox" runat="server" placeholder="Apellido Materno"></asp:TextBox>
 
                         <br /><br />
-                        <asp:TextBox ID="txtDir" runat="server" placeholder="Dirección"></asp:TextBox>
+                        <asp:TextBox ID="txtDir" CssClass="txtBox" runat="server" placeholder="Dirección"></asp:TextBox>
                         <br /><br />
-                        <asp:TextBox ID="txtMQ" runat="server" placeholder="Equipo"></asp:TextBox>
+                        <asp:TextBox ID="txtMQ" CssClass="txtBox" runat="server" placeholder="Equipo"></asp:TextBox>
                         <br /><br />
-                        <asp:TextBox ID="txtFechContrato" runat="server" placeholder="Fecha Contrato"></asp:TextBox>
+                        <asp:TextBox ID="txtFechContrato" CssClass="txtBox" runat="server" placeholder="Fecha Contrato"></asp:TextBox>
                     </dd>
                           
                   </dl>
@@ -77,16 +78,71 @@
                     <dt>Agreagar</dt>
                   </dl>
                     <asp:Button ID="btnContrato" runat="server" Text="Generar" CssClass="btn"/>
+
+                    
+                    
                 </div>
               </div>
 
-
+              <div class="grid_6">
+                <div class="info-box">
+                  <h2 class="fa-upload">Contrato</h2>
+                  <hr/>
+                  <h3>Buscar archivo PDF </h3>
+                  <dl>
+                      <%--<dd>Buscar archivo PDF</dd>--%>
+                    <dt><asp:FileUpload ID="fluCargar" runat="server" /> </dt>
+                    
+                  </dl>
+                    <asp:Button ID="btnCargar" runat="server" Text="Cargar PDF" CssClass="btn" OnClick="btnCargar_Click"/>
+                   <br /><br />
+                  <d1>
+                      <div>
+                      
+                    <iframe name="certificado"
+                       src="<%=Session["nomArchivo"].ToString() %>"
+                        width="350" height="450"></iframe>
+                    <br /><br /></div>
+                  </d1>
+                  <hr/>
+                  
+                </div>
+              </div>
 
             </div>
           </div>
         </section>
 
 
+
+    <%--<table >
+            <tr>
+                <td>
+                    Cargar un archivo en PDF
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Buscar archivo PDF
+                </td>
+                <td>
+                    <asp:FileUpload ID="fluCargar" runat="server" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <asp:Button ID="btnCargar" runat="server" Text="Cargar" OnClick="btnCargar_Click" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <iframe name="certificado"
+                        src="<%=Session["nomArchivo"].ToString() %>"
+                        width="450" height="350"></iframe>
+                    <br /><br />
+                </td>
+            </tr>
+        </table>--%>
 
 
 
