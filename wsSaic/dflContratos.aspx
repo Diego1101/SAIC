@@ -1,4 +1,4 @@
-<%@ Page Title="" Language="C#" MasterPageFile="~/mpPrincipalSecretaria.master" AutoEventWireup="true" CodeFile="dflContratos.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mpPrincipalSecretaria.master" AutoEventWireup="true" CodeFile="dflContratos.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
@@ -55,9 +55,9 @@
                         <br /><br />
                         <asp:TextBox ID="txtFolio" CssClass="txtBox" runat="server" placeholder="Folio"></asp:TextBox>
                         <br /><br />
-                        <asp:TextBox ID="txtPrecio" CssClass="txtBox" runat="server" placeholder="Precio"></asp:TextBox>
+                        <asp:TextBox ID="txtPrecio" CssClass="txtBox" runat="server" placeholder="Costo"></asp:TextBox>
                         <br /><br />
-                        <asp:TextBox ID="txtFechaCorte" CssClass="txtBox" runat="server" placeholder="Fecha"></asp:TextBox>
+                        <asp:TextBox ID="txtFechaCorte" CssClass="txtBox" runat="server" placeholder="Fecha corte"></asp:TextBox>
                         <br /><br />
                     </dd>
                   </dl>
@@ -65,7 +65,7 @@
                   <dl>
                       <dd>
                    <hr/>
-                  <h3>Buscar archivo PDF </h3>
+                  <h3>Buscar archivo PDF Contrato </h3>
                   <dl>
                       <%--<dd>Buscar archivo PDF</dd>--%>
                     <dt><asp:FileUpload ID="fluCargar" runat="server" /> </dt>
@@ -121,20 +121,18 @@
                         
                         <asp:DropDownList ID="dpdwMaquina" runat="server"></asp:DropDownList>
                         <br /><br />
-                        <asp:DropDownList ID="dpdwVenta" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="dpdwContrato" runat="server"></asp:DropDownList>
                         <br /><br />
                         <br /><br />
-                        <asp:TextBox ID="txtCalle" CssClass="txtBox" runat="server" placeholder="Calle"></asp:TextBox>
+                        <asp:TextBox ID="txtDireccion" CssClass="txtBox" runat="server" placeholder="Direccion"></asp:TextBox>
                         <br /><br />
-                        <asp:TextBox ID="txtNumCalle" CssClass="txtBox" runat="server" placeholder="Numero"></asp:TextBox>
+                        <asp:TextBox ID="txtCosto" CssClass="txtBox" runat="server" placeholder="Costo"></asp:TextBox>
                         <br /><br />
-                        <asp:TextBox ID="txtCiudad" CssClass="txtBox" runat="server" placeholder="Ciudad"></asp:TextBox>
+                        <asp:TextBox ID="txtFechaServ" CssClass="txtBox" runat="server" placeholder="Fecha del servicio"></asp:TextBox>
                         <br /><br />
-                        <asp:TextBox ID="txtEstado" CssClass="txtBox" runat="server" placeholder="Estado"></asp:TextBox>
+                        <asp:TextBox ID="txtCostoExtra" CssClass="txtBox" runat="server" placeholder="Costo extra por copia"></asp:TextBox>
                         <br /><br />
-                        <asp:TextBox ID="txtCP" CssClass="txtBox" runat="server" placeholder="Código Postal"></asp:TextBox>
-                        <br /><br />
-                        <asp:TextBox ID="txtFechaServ"  CssClass="txtBox" runat="server" placeholder="Fecha del Servicio"></asp:TextBox>
+                        <asp:TextBox ID="txtNoCopia"  CssClass="txtBox" runat="server" placeholder="Numero de copias"></asp:TextBox>
                        </dd>    
                   </dl>
                   
