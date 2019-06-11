@@ -71,6 +71,14 @@ public class clsCliente
         return res;
     }
 
+    public DataSet listarCliente(string con)
+    {
+        da = new SqlDataAdapter("TSP_ListarCliente", con);
+        ds = new DataSet();
+        da.Fill(ds, "ClienteLista");
+        return ds;
+    }
+
 
 
 

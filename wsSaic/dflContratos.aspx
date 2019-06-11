@@ -40,7 +40,7 @@
 
               <div class="grid_6">
                 <div class="info-box">
-                  <h2 class="fa-user">Información del cliente</h2>
+                  <h2 class="fa-user">Registrar venta o renta</h2>
                   <hr/>
                   <h3>Datos:   </h3>
                   <dl >
@@ -49,45 +49,22 @@
                     <dd>
                          <br /><br />
                         <%--CssClass="txtBox"  DA FORMATO A LAS CAJAS DE TEXTO--%>
-                        <asp:TextBox ID="txtNombre" CssClass="txtBox" runat="server" placeholder="Nombre"></asp:TextBox>
+                        <asp:DropDownList ID="dpdwRentaVenta" runat="server"></asp:DropDownList>
                         <br /><br />
-                        <asp:TextBox ID="txtAP" CssClass="txtBox" runat="server" placeholder="Apellido Paterno"></asp:TextBox>
-                        
+                        <asp:DropDownList ID="dpdwCliente" runat="server"></asp:DropDownList>
                         <br /><br />
-                        <asp:TextBox ID="txtAM"  CssClass="txtBox" runat="server" placeholder="Apellido Materno"></asp:TextBox>
-
+                        <asp:TextBox ID="txtFolio" CssClass="txtBox" runat="server" placeholder="Folio"></asp:TextBox>
                         <br /><br />
-                        <asp:TextBox ID="txtDir" CssClass="txtBox" runat="server" placeholder="Dirección"></asp:TextBox>
+                        <asp:TextBox ID="txtPrecio" CssClass="txtBox" runat="server" placeholder="Precio"></asp:TextBox>
                         <br /><br />
-                        <asp:TextBox ID="txtMQ" CssClass="txtBox" runat="server" placeholder="Equipo"></asp:TextBox>
+                        <asp:TextBox ID="txtFechaCorte" CssClass="txtBox" runat="server" placeholder="Fecha"></asp:TextBox>
                         <br /><br />
-                        <asp:TextBox ID="txtFechContrato" CssClass="txtBox" runat="server" placeholder="Fecha Contrato"></asp:TextBox>
                     </dd>
-                          
                   </dl>
                   
                   <dl>
-                    
-                  </dl>
-                    <dl>
-                    
-                  </dl>
-                  <hr/>
-                  <h3>Generar Contraro </h3>
-                  <dl>
-                    <dt>Agreagar</dt>
-                  </dl>
-                    <asp:Button ID="btnContrato" runat="server" Text="Generar" CssClass="btn"/>
-
-                    
-                    
-                </div>
-              </div>
-
-              <div class="grid_6">
-                <div class="info-box">
-                  <h2 class="fa-upload">Contrato</h2>
-                  <hr/>
+                      <dd>
+                   <hr/>
                   <h3>Buscar archivo PDF </h3>
                   <dl>
                       <%--<dd>Buscar archivo PDF</dd>--%>
@@ -105,9 +82,79 @@
                     <br /><br /></div>
                   </d1>
                   <hr/>
+                  </dl>
+                    <dl>
+                    
+                  </dl>
+                  <h3>Registrar la venta </h3>
+                  <dl>
+                    <dt>Agreagar</dt>
+                  </dl>
+                    <asp:Button ID="btnRegisVen" runat="server" Text="Registrar" CssClass="btn"/>
+
+                  </dd>  
+                    
+                </div>
+              </div>
+
+              <div class="grid_6">
+                <div class="info-box">
+                  <h2 class="fa-upload">Contrato</h2>
+                  
                   
                 </div>
               </div>
+
+
+
+              <div class="grid_6">
+                <div class="info-box">
+                  <h2 class="fa-edit">Información de la máquina</h2>
+                  <hr/>
+                  <h3>Datos:   </h3>
+                  <dl >
+                    
+                    <dt>    </dt> 
+                    <dd>
+                         <br /><br />
+                        <%--CssClass="txtBox"  DA FORMATO A LAS CAJAS DE TEXTO--%>
+                        
+                        <asp:DropDownList ID="dpdwMaquina" runat="server"></asp:DropDownList>
+                        <br /><br />
+                        <asp:DropDownList ID="dpdwVenta" runat="server"></asp:DropDownList>
+                        <br /><br />
+                        <br /><br />
+                        <asp:TextBox ID="txtCalle" CssClass="txtBox" runat="server" placeholder="Calle"></asp:TextBox>
+                        <br /><br />
+                        <asp:TextBox ID="txtNumCalle" CssClass="txtBox" runat="server" placeholder="Numero"></asp:TextBox>
+                        <br /><br />
+                        <asp:TextBox ID="txtCiudad" CssClass="txtBox" runat="server" placeholder="Ciudad"></asp:TextBox>
+                        <br /><br />
+                        <asp:TextBox ID="txtEstado" CssClass="txtBox" runat="server" placeholder="Estado"></asp:TextBox>
+                        <br /><br />
+                        <asp:TextBox ID="txtCP" CssClass="txtBox" runat="server" placeholder="Código Postal"></asp:TextBox>
+                        <br /><br />
+                        <asp:TextBox ID="txtFechaServ"  CssClass="txtBox" runat="server" placeholder="Fecha del Servicio"></asp:TextBox>
+                       </dd>    
+                  </dl>
+                  
+                  <dl>
+                  </dl>
+                    <dl>
+                  </dl>
+                  <hr/>
+                  <h3>Generar Contraro </h3>
+                  <dl>
+                    <dt>Agreagar</dt>
+                  </dl>
+                    <asp:Button ID="Button1" runat="server" Text="Generar" CssClass="btn" OnClick="Button1_Click"/>
+
+                    
+                    
+                </div>
+              </div>
+
+
 
             </div>
           </div>
