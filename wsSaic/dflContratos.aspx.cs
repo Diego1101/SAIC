@@ -19,7 +19,7 @@ public partial class _Default : System.Web.UI.Page
         
         if (!IsPostBack)
         {
-            
+            llenardropMaquina();
             llenardropCliente();
             llenardropTipoVen();
         }
@@ -63,6 +63,11 @@ public partial class _Default : System.Web.UI.Page
         dpdwRentaVenta.DataTextField = "TIPO";
         dpdwRentaVenta.DataBind();
         dpdwRentaVenta.Items.Insert(0, "--Selecciona el tipo--");
+
+    }
+
+    void llenardropMaquina()
+    {
 
     }
 

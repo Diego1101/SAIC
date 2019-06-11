@@ -121,14 +121,10 @@
                         
                         <asp:DropDownList ID="dpdwMaquina" runat="server"></asp:DropDownList>
                         <br /><br />
-                        <asp:DropDownList ID="dpdwContrato" runat="server"></asp:DropDownList>
-                        <br /><br />
                         <br /><br />
                         <asp:TextBox ID="txtDireccion" CssClass="txtBox" runat="server" placeholder="Direccion"></asp:TextBox>
                         <br /><br />
                         <asp:TextBox ID="txtCosto" CssClass="txtBox" runat="server" placeholder="Costo"></asp:TextBox>
-                        <br /><br />
-                        <asp:TextBox ID="txtFechaServ" CssClass="txtBox" runat="server" placeholder="Fecha del servicio"></asp:TextBox>
                         <br /><br />
                         <asp:TextBox ID="txtCostoExtra" CssClass="txtBox" runat="server" placeholder="Costo extra por copia"></asp:TextBox>
                         <br /><br />
