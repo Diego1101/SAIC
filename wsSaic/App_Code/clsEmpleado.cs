@@ -12,7 +12,7 @@ using System.Globalization;
 public class clsEmpleado
 {
 
-    public int Id, Rol, Id_Sucursal;
+    public int Id, Rol, Id_Sucursal, Folio;
     public string Nombre, Apellido, Usuario, Contra, Foto, Sexo, Dir, Telefono, Correo, Seguro;
     public DateTime Cumple, Fecha_Reg;
 
@@ -102,7 +102,7 @@ public class clsEmpleado
             {
                 clsServicio obj = new clsServicio();
                 obj.Id= int.Parse(dr.GetValue(0).ToString());
-                obj.Maquina= int.Parse(dr.GetValue(1).ToString());
+                obj.IdMaquina= int.Parse(dr.GetValue(1).ToString());
                 obj.Tipo = int.Parse(dr.GetValue(2).ToString());
                 obj.Desc = dr.GetValue(3).ToString();
                 obj.Fecha_inicio = DateTime.Parse(dr.GetValue(4).ToString());
@@ -114,13 +114,11 @@ public class clsEmpleado
                 obj.Cp = dr.GetValue(10).ToString();
                 obj.Nombre = dr.GetValue(11).ToString();
                 obj.Folio = int.Parse(dr.GetValue(12).ToString());
+                obj.Maquina = new clsMaquina(obj.IdMaquina, cn);
                 res.Add(obj);
             }
         }
         cnn.Close();
-
-
-
         return res;
     }
 

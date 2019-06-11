@@ -11,7 +11,7 @@
                 <br />
                 <asp:DropDownList ID="dwlTipo" runat="server" CssClass="DropDown" TabIndex="4">
                     <asp:ListItem>Cliente</asp:ListItem>
-                    <asp:ListItem>Empleado</asp:ListItem>
+                    <asp:ListItem Selected="True">Empleado</asp:ListItem>
                 </asp:DropDownList>
                 <asp:TextBox ID="txtUsuario" runat="server" placeHolder="Usuario" CssClass="txtBox" TabIndex="1" ></asp:TextBox>
                 <asp:TextBox ID="txtContra" runat="server" placeHolder="Contraseña" CssClass="txtBox" TabIndex="2" TextMode="Password"></asp:TextBox>
