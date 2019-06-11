@@ -76,10 +76,5 @@ public partial class _Default : System.Web.UI.Page
             Response.Write("<script language ='javascript'>alert('Elige el servicio y al técnico');</script>");
         }
 
-
-
-
-
-
     }
 }

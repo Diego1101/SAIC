@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-
     <section class="well1">
         <div class="container" style="align-content:center">
           <div class="row" >
@@ -33,6 +32,5 @@
           </div>
         </div>
     </section>
-
 </asp:Content>
 
