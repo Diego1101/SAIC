@@ -13,7 +13,7 @@ public class clsServicio
 
     public int Id, IdMaquina, Empleado, Tipo, Estatus, NoServ, Contador, Folio;
     float Precio;
-    public string Estado, Desc, Modelo, Calle, Numero, Ciudad, DEstado, Cp, Nombre, Problema, Solucion;
+    public string Estado, Desc, Modelo, Dir, Nombre, Problema, Solucion;
     public DateTime Fecha_inicio, Fecha_Fin, Fecha;
     public clsMaquina Maquina;
 
