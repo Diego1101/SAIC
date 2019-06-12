@@ -62,4 +62,33 @@ public class clsMaquina
         cnn.Close();
     }
 
+    public string solicitarServicio(string problema, string cn)
+    {
+        string res = "";
+
+
+        cnn = new SqlConnection(cn);
+        cmd = new SqlCommand("TSP_CREARSERVICIO", cnn);
+
+        SqlParameter nMq = cmd.Parameters.Add("@MQ", SqlDbType.Int);
+        SqlParameter nPro = cmd.Parameters.Add("@PROBLEMA", SqlDbType.NVarChar, 200);
+
+        cmd.CommandType = CommandType.StoredProcedure;
+
+        nMq.Value = Id;
+        nPro.Value = problema;
+
+        cnn.Open();
+        dr = cmd.ExecuteReader();
+
+        while (dr.Read())
+        {
+            res = dr.GetValue(0).ToString();
+            
+        }
+        cnn.Close();
+
+        return res;
+    }
+
 }

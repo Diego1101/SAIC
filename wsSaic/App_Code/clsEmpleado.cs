@@ -12,8 +12,8 @@ using System.Globalization;
 public class clsEmpleado
 {
 
-    public int Id, Rol, Id_Sucursal, Folio;
-    public string Nombre, Apellido, Usuario, Contra, Foto, Sexo, Dir, Telefono, Correo, Seguro;
+    public int Id, Rol, Id_Sucursal, Folio, Sexo;
+    public string Nombre, Apellido, Usuario, Contra, Foto, Dir, Telefono, Correo, Seguro;
     public DateTime Cumple, Fecha_Reg;
 
     SqlConnection cnn;
@@ -29,9 +29,44 @@ public class clsEmpleado
         //
     }
 
-    public clsEmpleado(int id)
+    public clsEmpleado(int id, string cn)
     {
         Id = id;
+
+        Id = id;
+        List<clsServicio> res = new List<clsServicio>();
+
+        cnn = new SqlConnection(cn);
+        cmd = new SqlCommand("SELECT * FROM EMPLEADO WHERE EM_ID = "+id.ToString()+"", cnn);
+        
+
+        cmd.CommandType = CommandType.Text;
+        
+
+        cnn.Open();
+        dr = cmd.ExecuteReader();
+
+        while (dr.Read())
+        {
+            if (dr.GetValue(0) != null)
+            {
+                //if (dr.GetValue(0) != null) Emp = int.Parse(dr.GetValue(0).ToString());
+                Nombre = dr.GetValue(3).ToString();
+                Apellido = dr.GetValue(4).ToString();
+                Usuario = dr.GetValue(5).ToString();
+                Contra = dr.GetValue(6).ToString();
+                Foto = dr.GetValue(7).ToString();
+                Sexo= int.Parse(dr.GetValue(8).ToString());
+                Cumple = DateTime.Parse(dr.GetValue(9).ToString());
+                Dir = dr.GetValue(10).ToString();
+                Telefono = dr.GetValue(11).ToString();
+                Correo = dr.GetValue(12).ToString();
+                Seguro = dr.GetValue(13).ToString();
+                //Fecha_Reg = DateTime.Parse(dr.GetValue(14).ToString());
+            }
+        }
+        cnn.Close();
+
     }
 
     ~clsEmpleado()
@@ -82,7 +117,7 @@ public class clsEmpleado
         List<clsServicio> res = new List<clsServicio>();
 
         cnn = new SqlConnection(cn);
-        cmd = new SqlCommand("TSP_mosntrarServiciosTec", cnn);
+        cmd = new SqlCommand("TSP_mostrarServiciosTec", cnn);
 
         SqlParameter nTec = cmd.Parameters.Add("@TECNICO", SqlDbType.Int);
         SqlParameter nTipo = cmd.Parameters.Add("@TIPO", SqlDbType.Int);
@@ -107,13 +142,9 @@ public class clsEmpleado
                 obj.Desc = dr.GetValue(3).ToString();
                 obj.Fecha_inicio = DateTime.Parse(dr.GetValue(4).ToString());
                 obj.Modelo = dr.GetValue(5).ToString();
-                obj.Calle = dr.GetValue(6).ToString();
-                obj.Numero = dr.GetValue(7).ToString();
-                obj.Ciudad = dr.GetValue(8).ToString();
-                obj.DEstado = dr.GetValue(9).ToString();
-                obj.Cp = dr.GetValue(10).ToString();
-                obj.Nombre = dr.GetValue(11).ToString();
-                obj.Folio = int.Parse(dr.GetValue(12).ToString());
+                obj.Dir = dr.GetValue(6).ToString();
+                obj.Nombre = dr.GetValue(7).ToString();
+                obj.Folio = int.Parse(dr.GetValue(8).ToString());
                 obj.Maquina = new clsMaquina(obj.IdMaquina, cn);
                 res.Add(obj);
             }
