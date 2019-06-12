@@ -12,7 +12,7 @@
     <section class="well1 ins2 mobile-center">
         <div class="container">
             <h2>Máquinas contratadas</h2>
-            <div class="row off2">
+            <div class="row off2" style="display:flex; flex-wrap: wrap;">
 
                 <%
                     clsCliente cliente = new clsCliente();

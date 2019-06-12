@@ -47,7 +47,7 @@
                                         {
                                             Response.Write("<a href='#' class='mUsuario'><i class='fa-user' style='color: rgb(98, 191, 230);'></i>&nbsp");
                                             Response.Write(Session["Usuario"].ToString() + "</a>");
-                                            Response.Write("<div class='dropdownContain'><div class='dropOut'><div class='triangle'></div><ul><li><a href='dflMisMaquinas.aspx' style='color: inherit'>Mi Cuenta</a></li><li><a  style='color: inherit'>Mis datos</a></li><li><a style='color: inherit'>Mi cuenta</a></li><li><a style='color: inherit' href='dflClSesion.aspx'>Cerrar sesión</a></li></ul></div></div>");
+                                            Response.Write("<div class='dropdownContain'><div class='dropOut'><div class='triangle'></div><ul><li><a href='dflMisMaquinas.aspx' style='color: inherit'>Mi Cuenta</a></li><li><a  style='color: inherit'>Mis datos</a></li><li><a style='color: inherit' href='dflClSesion.aspx'>Cerrar sesión</a></li></ul></div></div>");
                                         }
 
                                     %>

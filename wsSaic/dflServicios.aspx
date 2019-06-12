@@ -11,7 +11,7 @@
 
     <section class="well1">
         <div class="container">
-            <div class="row">
+            <div class="row" style="display:flex; flex-wrap: wrap;">
                 <%
                     clsEmpleado emp = new clsEmpleado();
                     List<clsServicio> res = emp.serviciosEmp(int.Parse(Session["ID"].ToString()), 3, Application["cnn"].ToString());
