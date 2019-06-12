@@ -11,14 +11,18 @@ using System.Data.SqlClient;
 public class clsMaquina
 {
 
+
     public int Id, Emp, Inv, Contador, Estatus;
     public string Modelo, NoSerie, Desc, Foto;
     public float Precio;
+    
 
-    SqlConnection cnn;
+    public SqlConnection cnn;
     SqlCommand cmd;
     SqlDataReader dr;
-    SqlDataAdapter da;
+    public SqlDataAdapter da;
+    DataSet ds;
+    string resulConsulta = "";
 
     public clsMaquina()
     {
@@ -61,5 +65,15 @@ public class clsMaquina
         }
         cnn.Close();
     }
+
+    public DataSet listarMaquina(string con)
+    {
+        da = new SqlDataAdapter("TSP_ListarMaquina", con);
+        ds = new DataSet();
+        da.Fill(ds, "MaquiLista");
+        return ds;
+    }
+
+    
 
 }
