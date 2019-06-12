@@ -68,7 +68,7 @@
 
                                 <li><a href="#">Inventario</a>
                                     <ul>
-                                        <li><a href="#">Maquinas</a></li>
+                                        <li><a href="dflInvMaquinas.aspx">Maquinas</a></li>
                                         <li><a href="#">Refacciones</a></li>
                                     </ul>
                                 </li>
