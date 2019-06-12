@@ -37,11 +37,11 @@ public class clsEmpleado
         List<clsServicio> res = new List<clsServicio>();
 
         cnn = new SqlConnection(cn);
-        cmd = new SqlCommand("SELECT * FROM EMPLEADO WHERE EM_ID = "+id.ToString()+"", cnn);
-        
+        cmd = new SqlCommand("SELECT * FROM EMPLEADO WHERE EM_ID = " + id.ToString() + "", cnn);
+
 
         cmd.CommandType = CommandType.Text;
-        
+
 
         cnn.Open();
         dr = cmd.ExecuteReader();
@@ -56,7 +56,7 @@ public class clsEmpleado
                 Usuario = dr.GetValue(5).ToString();
                 Contra = dr.GetValue(6).ToString();
                 Foto = dr.GetValue(7).ToString();
-                Sexo= int.Parse(dr.GetValue(8).ToString());
+                Sexo = int.Parse(dr.GetValue(8).ToString());
                 Cumple = DateTime.Parse(dr.GetValue(9).ToString());
                 Dir = dr.GetValue(10).ToString();
                 Telefono = dr.GetValue(11).ToString();
@@ -136,8 +136,8 @@ public class clsEmpleado
             if (dr.GetValue(0) != null)
             {
                 clsServicio obj = new clsServicio();
-                obj.Id= int.Parse(dr.GetValue(0).ToString());
-                obj.IdMaquina= int.Parse(dr.GetValue(1).ToString());
+                obj.Id = int.Parse(dr.GetValue(0).ToString());
+                obj.IdMaquina = int.Parse(dr.GetValue(1).ToString());
                 obj.Tipo = int.Parse(dr.GetValue(2).ToString());
                 obj.Desc = dr.GetValue(3).ToString();
                 obj.Fecha_inicio = DateTime.Parse(dr.GetValue(4).ToString());
@@ -161,6 +161,71 @@ public class clsEmpleado
         return ds;
     }
 
+    public string actualizar(string cn)
+    {
+        string res = "";
 
+        cnn = new SqlConnection(cn);
+        cmd = new SqlCommand("TSP_ACTUALIZAREMPLEADO", cnn);
+
+        SqlParameter nId = cmd.Parameters.Add("@ID_EMP", SqlDbType.Int);
+        SqlParameter nNom = cmd.Parameters.Add("@NOMBRE", SqlDbType.NVarChar, 20);
+        SqlParameter nAp = cmd.Parameters.Add("@AP", SqlDbType.NVarChar, 20);
+        SqlParameter nSx = cmd.Parameters.Add("@SEXO", SqlDbType.Int);
+        SqlParameter nDir = cmd.Parameters.Add("@DIR", SqlDbType.NVarChar, 250);
+        SqlParameter nTel = cmd.Parameters.Add("@TEL", SqlDbType.NVarChar, 20);
+        SqlParameter nCorreo = cmd.Parameters.Add("@CORREO", SqlDbType.NVarChar, 150);
+        SqlParameter nFoto = cmd.Parameters.Add("@FOTO", SqlDbType.NVarChar, 300);
+
+        cmd.CommandType = CommandType.StoredProcedure;
+       
+        nId.Value = Id;
+        nNom.Value = Nombre;
+        nAp.Value = Apellido;
+        nSx.Value = Sexo;
+        nDir.Value = Dir;
+        nTel.Value = Telefono;
+        nCorreo.Value = Correo;
+        nFoto.Value = Foto;
+
+        cnn.Open();
+        dr = cmd.ExecuteReader();
+
+        while (dr.Read())
+        {
+            res = dr.GetValue(0).ToString();
+        }
+        cnn.Close();
+        return res;
+    }
+
+    public string cmbContra(string ant, string nv, string cn)
+    {
+        string res = "";
+
+        cnn = new SqlConnection(cn);
+        cmd = new SqlCommand("TSP_CAMBIARCONTRAEMP", cnn);
+
+        SqlParameter nId = cmd.Parameters.Add("@ID", SqlDbType.Int);
+        SqlParameter nNom = cmd.Parameters.Add("@ANT", SqlDbType.NVarChar, 50);
+        SqlParameter nAp = cmd.Parameters.Add("@NV", SqlDbType.NVarChar, 50);
+
+        cmd.CommandType = CommandType.StoredProcedure;
+
+        nId.Value = Id;
+        nNom.Value = ant;
+        nAp.Value = nv;
+        
+
+        cnn.Open();
+        dr = cmd.ExecuteReader();
+
+        while (dr.Read())
+        {
+            res = dr.GetValue(0).ToString();
+        }
+        cnn.Close();
+        return res;
+    }
 
 }

@@ -17,7 +17,7 @@
                 <asp:TextBox ID="txtContra" runat="server" placeHolder="Contraseña" CssClass="txtBox" TabIndex="2" TextMode="Password"></asp:TextBox>
                 <div style="text-align:right; font-size: 10px;"><p><a href="#" class="" tabindex="10">¿Olvidaste tu contraseña?</a></p></div>
                 <div><asp:Button ID="btnInSesion" runat="server" Text="Iniciar Sesión" TabIndex="3" CssClass="btn btnSesion" OnClick="btnInSesion_Click"/></div>
-                <h8>¿No tienes cuenta? Registrate <a href="#" class="">aqui</a></h8>
+                <h8>¿No tienes cuenta? Registrate <a href="dflRegistro.aspx" class="">aqui</a></h8>
             </div>
             
         </div>

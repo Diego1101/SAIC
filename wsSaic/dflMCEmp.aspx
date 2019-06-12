@@ -55,9 +55,10 @@
                 <div style="margin-left: 25%;">
                     <h4>Foto</h4>
 
+                    <asp:Label ID="lblFoto" runat="server" Text="Label" Visible="false"></asp:Label>
                     <asp:ImageButton ID="imgFoto" runat="server" CssClass="txtBox" ImageUrl="~/ImgDef/Usuario.jpg" Width="50%" Enabled="false" ClientIDMode="Static" />
                     <asp:FileUpload ID="fluFoto" runat="server" ClientIDMode="Static" />
-                    <asp:Button ID="btnSubir" runat="server" Text="Subir" CssClass="btn btn-comp" />
+                    
 
                 </div>
             </div>
@@ -74,7 +75,7 @@
                 <asp:TextBox ID="txtContra" runat="server" CssClass="txtBox" TextMode="Password" placeHolder="Nueva contraseña"></asp:TextBox><br />
                 <h4>Repetir contraseña</h4>
                 <asp:TextBox ID="txtCContra" runat="server" CssClass="txtBox" TextMode="Password" placeHolder="Repetir contraseña"></asp:TextBox><br />
-                <asp:Button ID="btnCambiar" runat="server" Text="Cambiar" CssClass="btn" Style="float: right;" />
+                <asp:Button ID="btnCambiar" runat="server" Text="Cambiar" CssClass="btn" Style="float: right;" OnClick="btnCambiar_Click"/>
             </div>
         </div>
     </div>
