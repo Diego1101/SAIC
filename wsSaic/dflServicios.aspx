@@ -39,7 +39,7 @@
                         html += "<hr/>";
                         html += "<h3>Dirección: </h3>";
                         html += "<dl>";
-                        html += "<dt>" + obj.Calle + " No." + obj.Numero + " " + obj.Ciudad + ", " + obj.DEstado + ". " + obj.Cp + "</dt>";
+                        html += "<dt>" + obj.Dir + "</dt>";
                         html += "</dl>";
                         html += "<a class='btn'  href='javascript:onclick=openSolicitud(" + obj.Id + ")'>Solicitud</a>";
                         html += "<a class='btn'  href='javascript:onclick=openMaquina(" + obj.IdMaquina + ")'>Ver Máquina</a>";
@@ -100,7 +100,7 @@
                         html += "<div class='col-md-1' style='float: right;'>";
                         html += "<h2><a href='javascript:onclick=closeCom(" + obj.Id + ")' style='color: red;'><i class='fa-close'></i></a></h2>";
                         html += "</div>";
-                        html += "<iframe class='panel' name='com1' src='dflCompletar.aspx?id=" + obj.Id + "&folio=" + obj.Folio + "' style='background-color: white;'></iframe>";
+                        html += "<iframe class='panel' name='com1' src='dflCompletar.aspx?id=" + obj.Id + "&folio=" + obj.Folio + "' style='background-color: inherit;'></iframe>";
                         html += "</div>";
                         html += "</div>";
 
