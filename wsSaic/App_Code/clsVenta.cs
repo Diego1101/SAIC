@@ -13,9 +13,10 @@ public class clsVenta
 {
 
     //RECORDAR NENE QUE ESTA ES LA CLASE CONTRATO---------------°°°°°°°°°°°°°°°°°°°°°°OK59
-    public int Id, Precio, Tipo, Estatus;
-    public string Contrato, Desc, Modelo, Calle, Numero, Ciudad, DEstado, Cp, Nombre;
+    public int Id, Precio, Tipo, Estatus, Cliente;
+    public string Folio, Contrato, Desc, Modelo, Calle, Numero, Ciudad, DEstado, Cp, Nombre;
     public DateTime Fecha, FechaCorte;
+    public float costo;
 
     public SqlConnection cnn;
     SqlCommand cmd;
@@ -46,24 +47,20 @@ public class clsVenta
     }
 
     
-    public string InsertarContrato(string con, string cod, int tipo, int mar, int prove, string nom, string presen, string descrip, int uni, float cost, string fotografia)
+    public string InsertarContrato(string con, int tipo, int cliente, string folio, float costo, DateTime fechaCorte, string contrato)
     {
         resulConsulta = "";
         cnn = new SqlConnection(con); //crea conexion ado
-        cmd = new SqlCommand("TSP_InsertarProducto", cnn);
+        cmd = new SqlCommand("TSP_InsertarContrato", cnn);
         //paramtros del procedimiento
-        SqlParameter codigo = cmd.Parameters.Add("@CODI", SqlDbType.VarChar, 60);
         SqlParameter tip = cmd.Parameters.Add("@TIPO", SqlDbType.Int, 4);
-        SqlParameter marca = cmd.Parameters.Add("@MARCA", SqlDbType.VarChar, 60);
-        SqlParameter prov = cmd.Parameters.Add("@PROOV", SqlDbType.VarChar, 60);
-        SqlParameter name = cmd.Parameters.Add("@NOMB", SqlDbType.VarChar, 60);
-        SqlParameter presenta = cmd.Parameters.Add("@PRESS", SqlDbType.VarChar, 60);
-        SqlParameter descr = cmd.Parameters.Add("@DESC", SqlDbType.VarChar, 60);
-        SqlParameter unida = cmd.Parameters.Add("@UNID", SqlDbType.VarChar, 60);
+        SqlParameter cli = cmd.Parameters.Add("@CLIENTE", SqlDbType.Int, 4);
+        SqlParameter fol = cmd.Parameters.Add("@FOLIO", SqlDbType.VarChar, 60);
         SqlParameter cos = cmd.Parameters.Add("@COSTO", SqlDbType.NVarChar, 60);
-        SqlParameter imag = cmd.Parameters.Add("@IMG", SqlDbType.VarChar, 60);
+        SqlParameter fechCor = cmd.Parameters.Add("@FECHCORTE", SqlDbType.DateTime, 60);
+        SqlParameter contra = cmd.Parameters.Add("@CONTRATO", SqlDbType.VarChar, 1000);
         cmd.CommandType = CommandType.StoredProcedure;
-        codigo.Value = cod; tip.Value = tipo; marca.Value = mar; prov.Value = prove; name.Value = nom; presenta.Value = presen; descr.Value = descrip; unida.Value = uni; cos.Value = cost; imag.Value = fotografia;
+        tip.Value = tipo; cli.Value = cliente; fol.Value = folio; cos.Value = costo; fechCor.Value = fechaCorte; contra.Value = contrato;
         cnn.Open();
         //ejeucta el command
         dr = cmd.ExecuteReader();
@@ -79,4 +76,14 @@ public class clsVenta
         cnn.Close();
         return resulConsulta;
     }
+
+    public DataSet listarContrato(string con)
+    {
+        da = new SqlDataAdapter("TSP_ListarContrato", con);
+        ds = new DataSet();
+        da.Fill(ds, "ContraLista");
+        return ds;
+    }
+
+    
 }
