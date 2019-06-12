@@ -99,6 +99,8 @@
                         <br /><br />
                         <asp:TextBox ID="txtCostoExtra" CssClass="txtBox" runat="server" placeholder="Costo extra por copia"></asp:TextBox>
                         <br /><br />
+                        <asp:TextBox ID="txtFechaVenci" CssClass="txtBox" runat="server" placeholder="Fecha de vencimiento"></asp:TextBox>
+                        <br /><br />
                         <asp:TextBox ID="txtNoCopia"  CssClass="txtBox" runat="server" placeholder="Numero de copias"></asp:TextBox>
                        </dd>    
                   </dl>

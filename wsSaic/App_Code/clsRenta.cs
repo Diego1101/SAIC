@@ -36,20 +36,26 @@ public class clsRenta
     }
 
 
+    
+
     //corregir NO SIRVE (no recibe la variable de maquina)
-    public string InsertarRenta(string con, int maq, int contra, float costo, float costoEx, string dir, int nocop)
+    public string InsertarRenta(string con, int maquina, int contrato, float costo, float costoExtra, string direccion, DateTime fechVencimiento, int nocopias)
     {
         resulConsulta = "";
         cnn = new SqlConnection(con); //crea conexion ado
         cmd = new SqlCommand("TSP_InsertarRenta", cnn);
         //paramtros del procedimiento
-        SqlParameter maqui = cmd.Parameters.Add("@MAQUINA", SqlDbType.Int, 8);
-        SqlParameter cont = cmd.Parameters.Add("@CONTRATO", SqlDbType.Int, 8);
+
+        SqlParameter maqui = cmd.Parameters.Add("@MAQUINA", SqlDbType.Int);
+        SqlParameter cont = cmd.Parameters.Add("@CONTRATO", SqlDbType.Int);
         SqlParameter cos = cmd.Parameters.Add("@COSTO", SqlDbType.NVarChar, 60);
         SqlParameter cosEx = cmd.Parameters.Add("@COSTOEXTRA", SqlDbType.NVarChar, 60);
         SqlParameter dire = cmd.Parameters.Add("@DIRECCION", SqlDbType.VarChar, 100);
-        SqlParameter ncop = cmd.Parameters.Add("@NOCOPIA", SqlDbType.Int, 10);
-        maqui.Value = maq; cont.Value = contra; cos.Value = costo; cosEx.Value = costoEx; dire.Value = dir; ncop.Value = nocop;
+        SqlParameter fechaVenci = cmd.Parameters.Add("@FECHAVEN", SqlDbType.DateTime, 60);
+        SqlParameter ncop = cmd.Parameters.Add("@NOCOPIA", SqlDbType.Int);
+
+        cmd.CommandType = CommandType.StoredProcedure;
+        maqui.Value = maquina; cont.Value = contrato; cos.Value = costo; cosEx.Value = costoExtra; dire.Value = direccion; fechaVenci.Value = fechVencimiento; ncop.Value = nocopias;
         cnn.Open();
         //ejeucta el command
         dr = cmd.ExecuteReader();

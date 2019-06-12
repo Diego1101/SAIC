@@ -98,8 +98,8 @@ public partial class _Default : System.Web.UI.Page
         string resultado = "";
         if (dpdwContrato.SelectedIndex > 0 && dpdwMaquina.SelectedIndex> 0 )
         {
-            resultado = objRen.InsertarRenta(Application["cnn"].ToString(), int.Parse(dpdwMaquina.SelectedIndex.ToString()), int.Parse(dpdwContrato.SelectedIndex.ToString()),  float.Parse(txtCosto.Text), float.Parse(txtCostoExtra.Text),txtDireccion.Text, int.Parse(txtNoCopia.Text));
-            if (int.Parse(resultado) > 0)
+            resultado = objRen.InsertarRenta(Application["cnn"].ToString(), int.Parse(dpdwMaquina.SelectedIndex.ToString()), int.Parse(dpdwContrato.SelectedIndex.ToString()),  float.Parse(txtCosto.Text), float.Parse(txtCostoExtra.Text),txtDireccion.Text, DateTime.Parse(txtFechaVenci.Text), int.Parse(txtNoCopia.Text));
+            if (int.Parse(resultado) == 1)
             {
                     Response.Write("<script language='javascript'>alert('La renta se insertó correctamente'); </script>");
                 
