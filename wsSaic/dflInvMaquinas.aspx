@@ -6,8 +6,8 @@
 
     <section class="well1 ins2 mobile-center">
         <div class="container">
-            <h2>Máquinas en inventario</h2>
-            <div class="row off2">
+            <h2>Máquinas en inventario <a href="dflDetMaquina.aspx"><i class="fa-plus"></i></a> </h2>
+            <div class="row off2" style="display:flex; flex-wrap: wrap;">
 
                 <%
                     clsMaquina mq = new clsMaquina();

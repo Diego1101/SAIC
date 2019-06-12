@@ -114,7 +114,5 @@
 
 
     </script>
-    <br />
-    <br />
 </asp:Content>
 
