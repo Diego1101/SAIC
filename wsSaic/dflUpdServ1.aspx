@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="dflUpdServ.aspx.cs" Inherits="dflSolicitud" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="dflUpdServ1.aspx.cs" Inherits="dflSolicitud" %>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml" style="background-color: #62bfe6">
@@ -11,7 +11,7 @@
 </head>
 <body style="padding: 0px;">
     
-    <form id="form1" runat="server" onsubmit="return window.open('dflPagos.aspx','ventanaprincipal');" style="background-color:#62bfe6;">
+    <form id="form1" runat="server" onsubmit="return window.open('dflSolicitudesTec.aspx','ventanaprincipal');" style="background-color:#62bfe6;">
      
        
         <%
@@ -21,12 +21,13 @@
 
         <asp:button Id="btnNegar" runat="server" text="Negar" CssClass="btn2" OnClick="btnNegar_Click" OnClientClick="motivo()"/>
         <asp:button Id="btnAceptar"  runat="server" text="Aceptar" CssClass="btn2" style="float:right;" OnClick="btnAceptar_Click"/> 
-        <asp:TextBox ID="txtMotivo" runat="server" ClientIDMode="Static" type="hidden"></asp:TextBox>
+        
         <%
             }
             else { 
 
              %> 
+        <asp:TextBox ID="txtMotivo" runat="server" ClientIDMode="Static" type="hidden"></asp:TextBox>
         <asp:button Id="btnBorrar"  runat="server" text="Borrar" CssClass="btn2" style="float:right;" OnClick="btnBorrar_Click" OnClientClick="confirmar()"/> 
          
         <%
