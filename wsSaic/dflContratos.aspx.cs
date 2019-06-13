@@ -101,7 +101,7 @@ public partial class _Default : System.Web.UI.Page
             resultado = objRen.InsertarRenta(Application["cnn"].ToString(), int.Parse(dpdwMaquina.SelectedIndex.ToString()), int.Parse(dpdwContrato.SelectedIndex.ToString()),  float.Parse(txtCosto.Text), float.Parse(txtCostoExtra.Text),txtDireccion.Text, DateTime.Parse(txtFechaVenci.Text), int.Parse(txtNoCopia.Text));
             if (int.Parse(resultado) == 1)
             {
-                    Response.Write("<script language='javascript'>alert('La renta se insertó correctamente'); </script>");
+                    Response.Write("<script language='javascript'>alert('La renta se insertó correctamente');document.location.href='dflContratos.aspx'; </script>");
                 
             }
             else if (int.Parse(resultado) == -1)
@@ -132,7 +132,7 @@ public partial class _Default : System.Web.UI.Page
                     string FolderPath = Server.MapPath("~/Archivos_PDF/");
                     fluCargar.SaveAs(FolderPath + fluCargar.FileName);
                     Session["nomArchivo"] = "/Archivos_PDF/" + fluCargar.FileName;
-                    Response.Write("<script language='javascript'>alert('EL contrato " + txtFolio.Text + " se insertó correctamente'); </script>");
+                    Response.Write("<script language='javascript'>alert('EL contrato " + txtFolio.Text + " se insertó correctamente');document.location.href='dflContratos.aspx'; </script>");
                 }
                 else
                 {
