@@ -262,8 +262,15 @@ public class clsEmpleado
         return solicitudes;
     }
 
+    public DataSet listarTipR(string con)
+    {
+        da = new SqlDataAdapter("TSP_TipoEmpleado", con);
+        ds = new DataSet();
+        da.Fill(ds, "RolLista");
+        return ds;
+    }
 
-  public string regCliente(string con)
+    public string regCliente(string con)
     {
         string res = "";
 
