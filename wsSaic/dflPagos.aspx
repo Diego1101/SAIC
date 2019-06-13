@@ -1,46 +1,49 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mpPrincipalSecretaria.master" AutoEventWireup="true" CodeFile="dflPagos.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+    <script type="text/javascript">
+        //<![CDATA[
+        self.name = "ventanaprincipal";
+        //]]>
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <section class="well1 ins2 mobile-center">
         <div class="container">
             <h2>Solicitudes</h2>
-            <div class="row off2">
+            <div class="row" style="display:flex; flex-wrap: wrap;">
 
                 <%
-                    clsCliente cliente = new clsCliente();
-                    cliente.Id = int.Parse(Session["ID"].ToString());
+                    clsSolicitud aux = new clsSolicitud();
 
-                    List<clsMaquina> mq=cliente.listarSolicitudes(Application["cnn"].ToString());
-                    foreach (clsMaquina obj in mq)
+
+                    //List<clsMaquina> mq=cliente.listarSolicitudes(Application["cnn"].ToString());
+                    List<clsSolicitud> sol = aux.listarPendientes(Application["cnn"].ToString());
+                    foreach (clsSolicitud obj in sol)
                     {
 
-
                 %>
-                <div class="grid_4" style="margin-top: 10px; margin-bottom: 75px;">
-                    <div align="center">
-                        <img src="IMGMAQUINAS/<% =obj.Foto%>" alt="Error al cargar la imagen" />
-                    </div>
-                    <h4><strong>No. Serie: </strong><% =obj.NoSerie%></h4>
-                    <p><strong>Modelo: </strong><% =obj.Modelo%></p>
-                    <p><strong>Descripción: </strong><% =obj.Desc%></p>
-                    <a class="btn" onclick="openRep(<% =obj.Id%>)">Reporte</a>
-                </div>
 
-                <div class="fondo-banner" id="rep<% =obj.Id%>">
-                    <div class="reporte">
-                        <div class='col-md-1' style='float: right;'>
-                            <h2><a href='javascript:onclick=closeRep(<% =obj.Id%>)' style='color: red;'><i class='fa-close'></i></a></h2>
-                        </div>
-                        <iframe class='panel' name='com1' src='dflGenServ.aspx?id=<% =obj.Id%>' style='background-color: inherit;'></iframe>
 
+                <div class="solicitudServ">
+                    <h4 style="color:white;"><strong>Folio: </strong><% =obj.folio%></h4>
+                    <p><strong>Nombre: </strong><% =obj.nombre%></p>
+                    <p><strong>Descripción: </strong><% =obj.descripcion%></p>
+                    
+           
+                    
+                    <div style="margin-left: 0px; margin-right: 0px; width: 100%; margin-top:5px;">
+                        <iframe class='panel' name='com1' src='dflUpdServ.aspx?p=1&id=<% =obj.slid%>' style='background-color: inherit; height: 76px;'></iframe>
                     </div>
+
                 </div>
 
                 <%
                     }
                 %>
+
+
+
             </div>
         </div>
 
