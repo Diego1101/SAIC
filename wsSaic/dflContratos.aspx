@@ -92,6 +92,7 @@
                         <asp:DropDownList ID="dpdwMaquina" runat="server" CssClass="DropDown"></asp:DropDownList>
                         <br /><br />
                         <asp:DropDownList ID="dpdwContrato" runat="server" CssClass="DropDown"></asp:DropDownList>
+
                         <br /><br />
                         <asp:TextBox ID="txtDireccion" CssClass="txtBox" runat="server" placeholder="Direccion"></asp:TextBox>
                         <br /><br />
