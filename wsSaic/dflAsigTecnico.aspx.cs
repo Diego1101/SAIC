@@ -69,6 +69,14 @@ public partial class _Default : System.Web.UI.Page
             if (res != "-1")
             {
                 Response.Write("<script language ='javascript'>alert('Se ha asignado correctamente');</script>");
+                if (txtConfirm.Text == "true")
+                {
+                    clsEmpleado emp = new clsEmpleado(int.Parse(dpdwTecnico.SelectedValue.ToString()), Application["cnn"].ToString());
+                    //"window.open('https://api.whatsapp.com/send?phone=52' + emp.Telefono + '&text=Se le ha sido asignado un nuevo servicio', 'popup', 'width=700px', 'height=700px');"
+                   
+                    Response.Write("<script language ='javascript'>window.open('https://api.whatsapp.com/send?phone=52" + emp.Telefono + "&text=Se le ha sido asignado un nuevo servicio', 'popup', 'width=700px', 'height=700px');</script>");
+
+                }
             }
         }
         else

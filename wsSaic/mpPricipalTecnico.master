@@ -65,7 +65,7 @@
                                 <li><a href="dflServicios.aspx">Servicios</a>
                                 </li>
                                 <li><a href="#">Solicitudes</a></li>
-                                <li><a href="#">Inventario</a>
+                                <li><a href="dflMaquinasTec.aspx">Inventario</a>
                                     <ul>
                                         <li><a href="dflMaquinasTec.aspx">Maquinas</a></li>
                                         <%--<li><a href="#">Refacciones</a></li>--%>
