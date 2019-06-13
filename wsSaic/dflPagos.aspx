@@ -8,6 +8,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
     <section class="well1 ins2 mobile-center">
         <div class="container">
             <h2>Solicitudes</h2>
