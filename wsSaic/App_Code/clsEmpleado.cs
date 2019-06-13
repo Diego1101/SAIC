@@ -236,4 +236,51 @@ public class clsEmpleado
         return ds;
     }
 
+
+    public string regCliente(string con)
+    {
+        string res = "";
+
+        cnn = new SqlConnection(con);
+        cmd = new SqlCommand("TSP_InsertarEmp", cnn);
+
+        SqlParameter nNom = cmd.Parameters.Add("@NOMBRE", SqlDbType.NVarChar, 20);
+        SqlParameter nAp = cmd.Parameters.Add("@APELLIDO", SqlDbType.NVarChar, 20);
+        SqlParameter nUs = cmd.Parameters.Add("@USU", SqlDbType.NVarChar, 15);
+        SqlParameter nCn = cmd.Parameters.Add("@CONTRA", SqlDbType.NVarChar, 15);
+        SqlParameter nFoto = cmd.Parameters.Add("@FOTO", SqlDbType.NVarChar, 300);
+        SqlParameter nSx = cmd.Parameters.Add("@SEXO", SqlDbType.Int);
+        SqlParameter nCumple = cmd.Parameters.Add("@CUMPLE", SqlDbType.DateTime, 60);
+        SqlParameter nDr = cmd.Parameters.Add("@DIRECCION", SqlDbType.NVarChar, 60);
+        SqlParameter nSeg = cmd.Parameters.Add("@SEGURO", SqlDbType.NVarChar, 30);
+        SqlParameter nRol = cmd.Parameters.Add("@ROL", SqlDbType.Int);
+        SqlParameter nTel = cmd.Parameters.Add("@TELEFONO", SqlDbType.NVarChar, 12);
+        SqlParameter nCorreo = cmd.Parameters.Add("@CORREO", SqlDbType.NVarChar, 150);
+
+        cmd.CommandType = CommandType.StoredProcedure;
+
+        nNom.Value = Nombre;
+        nAp.Value = Apellido;
+        nUs.Value = Usuario;
+        nCn.Value = Contra;
+        nFoto.Value = Foto;
+        nSx.Value = Sexo;
+        nCumple.Value = Cumple;
+        nDr.Value = Dir;
+        nSeg.Value = Seguro;
+        nRol.Value = Rol;
+        nTel.Value = Telefono;
+        nCorreo.Value = Correo;
+
+        cnn.Open();
+        dr = cmd.ExecuteReader();
+
+        while (dr.Read())
+        {
+            res = dr.GetValue(0).ToString();
+        }
+        cnn.Close();
+        return res;
+    }
+
 }

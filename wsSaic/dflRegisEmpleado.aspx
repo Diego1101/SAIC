@@ -102,7 +102,7 @@
                         
                     </div>
 
-                    <asp:button id="btnGuardar" runat="server" text="Crear Cuenta" cssclass="btn" style="float: right;" />
+                    <asp:button id="btnGuardar" runat="server" text="Crear Cuenta" cssclass="btn" style="float: right;" OnClick="btnGuardar_Click" />
                 </div>
 
             </div>

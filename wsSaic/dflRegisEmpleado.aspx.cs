@@ -32,4 +32,39 @@ public partial class _Default : System.Web.UI.Page
         dpdwRol.Items.Insert(0, "--Selecciona rol--");
 
     }
+
+    protected void btnGuardar_Click(object sender, EventArgs e)
+    {
+        if (txtContra.Text != txtCConta.Text)
+        {
+            Response.Write("<script language ='javascript'>alert('Las contraseñas no coinciden');</script>");
+            return;
+        }
+
+        clsEmpleado cli = new clsEmpleado();
+        cli.Nombre = txtNombre.Text;
+        cli.Apellido = txtApellido.Text;
+        cli.Usuario = txtUsario.Text;
+        cli.Contra = txtContra.Text;
+        if (fluFoto.HasFile)
+        {
+            string FolderPath = Server.MapPath("~/usuarios/");
+            fluFoto.SaveAs(FolderPath + fluFoto.FileName);
+            lblFoto.Text = fluFoto.FileName;
+        }
+        cli.Foto = lblFoto.Text;
+        cli.Sexo = dwlSexo.SelectedIndex;
+        cli.Dir = txtDir.Text;
+        cli.Cumple = DateTime.Parse(txtCumple.Text);
+        cli.Seguro = txtSeguroS.Text;
+        cli.Rol = dpdwRol.SelectedIndex;
+        cli.Correo = txtCorreo.Text;
+        cli.Telefono = txtTel.Text;
+        
+        string res = cli.regCliente(Application["cnn"].ToString());
+        if (res == "-1") Response.Write("<script language ='javascript'>alert('El usuario ya existe');</script>");
+        else Response.Write("<script language ='javascript'>alert('Cuenta creada');document.location.href='dflInSesion.aspx';</script>");
+
+
+    }
 }
