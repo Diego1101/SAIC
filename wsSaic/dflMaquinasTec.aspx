@@ -23,7 +23,7 @@
                     <h4><strong>No. Serie: </strong><% =obj.NoSerie%></h4>
                     <p><strong>Modelo: </strong><% =obj.Modelo%></p>
                     <p><strong>Descripción: </strong><% =obj.Desc%></p>
-                    <a href="#" class="btn">Modificar</a>
+                    <a href="dflDetMaquinaTec.aspx?id=<% =obj.Id%>" class="btn">Modificar</a>
                 </div>
                 <%
                     }
