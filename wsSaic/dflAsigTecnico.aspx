@@ -13,11 +13,11 @@
                   <h2 class="fa-edit" style="align-content:center" >Solicitudes de reparación</h2>
                   <hr/>
                     <center>
-                        <asp:DropDownList ID="dpdwServicio" runat="server">
+                        <asp:DropDownList ID="dpdwServicio" CssClass="DropDown" runat="server">
                         </asp:DropDownList>
                         <br />
                         &nbsp;&nbsp;&nbsp;
-                        <asp:DropDownList ID="dpdwTecnico" runat="server">
+                        <asp:DropDownList ID="dpdwTecnico" CssClass="DropDown" runat="server">
                         </asp:DropDownList>
                         <br />
                         &nbsp;&nbsp;&nbsp;

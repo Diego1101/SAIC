@@ -41,7 +41,7 @@
                     <div class="row"></div>
                     <div class="col-lg-5">
                         <h4>Sexo</h4>
-                        <asp:dropdownlist id="dwlSexo" runat="server" cssclass="DropDown" style="text-align: left; width: 105%; height: 40px;">
+                        <asp:dropdownlist id="dwlSexo" runat="server" CssClass="DropDown" style="text-align: left; width: 105%; height: 40px;">
                         <asp:ListItem>Mujer</asp:ListItem>
                         <asp:ListItem>Hombre</asp:ListItem>
                         <asp:ListItem Selected="True">Otro</asp:ListItem>
@@ -103,6 +103,15 @@
                     </div>
 
                     <asp:button id="btnGuardar" runat="server" text="Crear Cuenta" cssclass="btn" style="float: right;" OnClick="btnGuardar_Click" />
+                    
+
+
+                    
+
+                    <div class="col-lg-5 col-lg-offset-1" style="margin-top:20px;">
+                        <asp:button id="btnEditar" runat="server" text="Editar" cssclass="btn" style="float: right;" OnClick="btnEditar_Click" />
+                    </div>
+                    
                 </div>
 
             </div>

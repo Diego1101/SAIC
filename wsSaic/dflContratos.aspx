@@ -89,9 +89,9 @@
                          <br /><br />
                         <%--CssClass="txtBox"  DA FORMATO A LAS CAJAS DE TEXTO--%>
                         
-                        <asp:DropDownList ID="dpdwMaquina" runat="server" cssclass="DropDown"></asp:DropDownList>
+                        <asp:DropDownList ID="dpdwMaquina" runat="server" CssClass="DropDown"></asp:DropDownList>
                         <br /><br />
-                        <asp:DropDownList ID="dpdwContrato" runat="server" cssclass="DropDown"></asp:DropDownList>
+                        <asp:DropDownList ID="dpdwContrato" runat="server" CssClass="DropDown"></asp:DropDownList>
                         <br /><br />
                         <asp:TextBox ID="txtDireccion" CssClass="txtBox" runat="server" placeholder="Direccion"></asp:TextBox>
                         <br /><br />
