@@ -51,12 +51,12 @@
                     </div>
                     <div class="row"></div>
 
-                    <div class="col-lg-5 col-lg-offset-1" >
+                    <div class="col-lg-5 " >
                         <h4>Fecha de nacimiento</h4>
                         <asp:textbox id="txtCumple" runat="server" cssclass="txtBox" placeholder="Fecha de nacimiento" required="required"></asp:textbox>
                     </div>
 
-                    <div class="col-lg-5" >
+                    <div class="col-lg-5 col-lg-offset-1" style="margin-top:25px;">
                         <h4>Dirección</h4>
                         <asp:textbox id="txtDir" runat="server" cssclass="txtBox" placeholder="Direccion" required="required" style="width: 95%"></asp:textbox>
                     </div>
@@ -77,7 +77,10 @@
                         <asp:textbox id="txtSeguroS" runat="server" cssclass="txtBox" placeholder="Seguro social" required="required" style="width: 95%"></asp:textbox>
                     </div>
 
-                    
+                    <div class="col-lg-5 col-lg-offset-1" style="margin-top:25px;">
+                        <h4>Tipo empleado</h4>
+                        <asp:DropDownList ID="dpdwRol" runat="server" CssClass="DropDown"></asp:DropDownList>
+                    </div>
                     
                     
                     <div class="col-lg-12" style="padding-left:0px; margin-top: 25px;">
@@ -99,7 +102,7 @@
                         
                     </div>
 
-                    <asp:button id="btnGuardar" runat="server" text="Crear Cuenta" cssclass="btn" style="float: right;" OnClick="btnGuardar_Click"/>
+                    <asp:button id="btnGuardar" runat="server" text="Crear Cuenta" cssclass="btn" style="float: right;" />
                 </div>
 
             </div>

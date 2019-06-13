@@ -228,4 +228,12 @@ public class clsEmpleado
         return res;
     }
 
+    public DataSet listarTipR(string con)
+    {
+        da = new SqlDataAdapter("TSP_TipoEmpleado", con);
+        ds = new DataSet();
+        da.Fill(ds, "RolLista");
+        return ds;
+    }
+
 }
