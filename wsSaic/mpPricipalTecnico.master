@@ -67,8 +67,8 @@
                                 <li><a href="#">Solicitudes</a></li>
                                 <li><a href="#">Inventario</a>
                                     <ul>
-                                        <li><a href="#">Maquinas</a></li>
-                                        <li><a href="#">Refacciones</a></li>
+                                        <li><a href="dflMaquinasTec.aspx">Maquinas</a></li>
+                                        <%--<li><a href="#">Refacciones</a></li>--%>
                                     </ul>
                                 </li>
                             </ul>
