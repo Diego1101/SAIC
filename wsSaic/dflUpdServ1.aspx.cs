@@ -31,9 +31,11 @@ public partial class dflSolicitud : System.Web.UI.Page
     {
         if (txtMotivo.Text == "true")
         {
-            Response.Write("<script language ='javascript'>alert('Eliminado');</script>");
+            clsSolicitud sol = new clsSolicitud(id, Application["cnn"].ToString());
+            sol.borrar(Application["cnn"].ToString());
 
         }
+        
 
     }
 }

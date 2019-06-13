@@ -771,7 +771,7 @@ EXEC TSP_ListarSolicitudes
 EXEC TSP_asignaServ 3, 5
 EXEC TSP_TipoVenta
 EXEC TSP_DATOSOLICITUD 1
-EXEC TSP_InsertarRenta 1,5, 5,4, 'Escobedo 120 Col. Centro',600
+EXEC TSP_InsertarRenta 1,5, 5,4, 'Escobedo 120 Col. Centro','2019-03-4',600 
 
 EXEC TSP_mostrarServiciosTec 3, 3
 EXEC TSP_InsertarContrato 2,2,152019,5000, '2019/2/5','pendiente'
