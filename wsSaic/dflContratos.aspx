@@ -18,9 +18,9 @@
                     <dd>
                          <br /><br />
                         <%--CssClass="txtBox"  DA FORMATO A LAS CAJAS DE TEXTO--%>
-                        <asp:DropDownList ID="dpdwRentaVenta" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="dpdwRentaVenta" runat="server" CssClass="DropDown"></asp:DropDownList>
                         <br /><br />
-                        <asp:DropDownList ID="dpdwCliente" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="dpdwCliente" runat="server" CssClass="DropDown"></asp:DropDownList>
                         <br /><br />
                         <asp:TextBox ID="txtFolio" CssClass="txtBox" runat="server" placeholder="Folio"></asp:TextBox>
                         <br /><br />
@@ -89,9 +89,9 @@
                          <br /><br />
                         <%--CssClass="txtBox"  DA FORMATO A LAS CAJAS DE TEXTO--%>
                         
-                        <asp:DropDownList ID="dpdwMaquina" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="dpdwMaquina" runat="server" cssclass="DropDown"></asp:DropDownList>
                         <br /><br />
-                        <asp:DropDownList ID="dpdwContrato" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="dpdwContrato" runat="server" cssclass="DropDown"></asp:DropDownList>
                         <br /><br />
                         <asp:TextBox ID="txtDireccion" CssClass="txtBox" runat="server" placeholder="Direccion"></asp:TextBox>
                         <br /><br />
