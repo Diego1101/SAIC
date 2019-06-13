@@ -228,4 +228,37 @@ public class clsEmpleado
         return res;
     }
 
+    public List<clsSolicitud> listarSolicitudes(string cn)
+    {
+        List<clsSolicitud> solicitudes = new List<clsSolicitud>();
+
+        cnn = new SqlConnection(cn);
+        //cmd = new SqlCommand("SELECT CN_FOLIO FOLIO, RN_NUMCOPIAS COPIAS, MQ_MODELO MODELO  FROM CONTRATO, RENTA, MAQUINA WHERE CN_TIPO = 2 AND CN_ESTATUS = 1 AND CN_ID_CLI = "+Id.ToString()+" AND RN_ID_CONTRATO = CN_ID AND RN_ID_MQ = MQ_ID", cnn);
+        cmd = new SqlCommand("SELECT SL_ID ID, SL_FOLIO, SL_NOMBRE, SL_ESTATUS, SL_DESCRIPCION, SR_FOLIO FROM SOLICITUD, SERVICIO WHERE SL_ID_SERV=SR_ID AND SR_ID_EMP= " + Id.ToString(), cnn);
+
+        cmd.CommandType = CommandType.Text;
+
+
+        cnn.Open();
+        dr = cmd.ExecuteReader();
+
+        while (dr.Read())
+        {
+            string res = dr.GetValue(0).ToString();
+            if (res != "0")
+            {
+                clsSolicitud obj = new clsSolicitud();
+                obj.slid= int.Parse(dr.GetValue(0).ToString());
+                obj.folio= int.Parse(dr.GetValue(1).ToString());
+                obj.nombre = dr.GetValue(2).ToString();
+                obj.estatus= int.Parse(dr.GetValue(3).ToString());
+                obj.descripcion= dr.GetValue(4).ToString();
+                solicitudes.Add(obj);
+            }
+        }
+        cnn.Close();
+
+        return solicitudes;
+    }
+
 }

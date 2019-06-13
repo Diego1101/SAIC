@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 public class clsSolicitud
 {
 
-    public int slid, folio;
+    public int slid, folio, estatus;
     public string descripcion, nombre;
     public SqlConnection cnn;
     SqlCommand cmd;
@@ -110,6 +110,22 @@ public class clsSolicitud
     {
         cnn = new SqlConnection(cn);
         cmd = new SqlCommand("UPDATE SOLICITUD SET SL_ESTATUS=2 WHERE SL_ID=" + slid.ToString(), cnn);
+
+        cmd.CommandType = CommandType.Text;
+
+
+        cnn.Open();
+        dr = cmd.ExecuteReader();
+
+
+        cnn.Close();
+
+    }
+
+    public void borrar(string cn)
+    {
+        cnn = new SqlConnection(cn);
+        cmd = new SqlCommand("DELETE FROM SOLICITUD WHERE SL_ID=" + slid.ToString(), cnn);
 
         cmd.CommandType = CommandType.Text;
 
