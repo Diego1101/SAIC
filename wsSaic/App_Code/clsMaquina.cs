@@ -128,6 +128,28 @@ public class clsMaquina
         return res;
     }
 
+    public List<clsMaquina> mqTenico(int tec, string cn)
+    {
+        List<clsMaquina> res = new List<clsMaquina>();
+
+        cnn = new SqlConnection(cn);
+        cmd = new SqlCommand("SELECT MQ_ID FROM MAQUINA WHERE MQ_ID_EMP="+tec.ToString()+ " and MQ_ESTATUS <> 0", cnn);
+
+        cmd.CommandType = CommandType.Text;
+
+        cnn.Open();
+        dr = cmd.ExecuteReader();
+
+        while (dr.Read())
+        {
+            res.Add(new clsMaquina(int.Parse(dr.GetValue(0).ToString()), cn));
+        }
+        cnn.Close();
+
+
+        return res;
+    }
+
     public string AM(string cn)
     {
         string res = "";
