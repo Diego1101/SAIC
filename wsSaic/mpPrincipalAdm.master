@@ -61,15 +61,15 @@
                     <div class="container">
                         <nav class="nav">
                             <ul data-type="navbar" class="sf-menu">
-                                <li><a href="#">Solicitudes</a>
+                                <li><a href="dflSolicitudesAdm.aspx">Solicitudes</a>
                                 </li>
-                                <li><a href="#">Reportes</a></li>
-                                <li><a href="#">Ventas</a></li>
+                                
+                                <%--<li><a href="#">Ventas</a></li>--%>
 
-                                <li><a href="#">Inventario</a>
+                                <li><a href="dflInvMaquinas.aspx">Inventario</a>
                                     <ul>
                                         <li><a href="dflInvMaquinas.aspx">Maquinas</a></li>
-                                        <li><a href="#">Refacciones</a></li>
+                                        <li><%--<a href="#">Refacciones</a>--%></li>
                                     </ul>
                                 </li>
 
@@ -79,6 +79,7 @@
                                         <li><a href="#">Clientes</a></li>
                                     </ul>
                                 </li>
+                                <li><a href="#">Reportes</a></li>
                             </ul>
                         </nav>
                     </div>
